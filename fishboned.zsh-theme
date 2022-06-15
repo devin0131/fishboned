@@ -82,7 +82,7 @@ zsh_theme_git_prompt_dirty="⚡"
 zsh_theme_git_prompt_clean="C"
 
 local host_name="%{$fg[blue]%}${username}"
-local time_string="%{$fg[blue]%}${local_time}"
+local time_string="%{$fg[gray]%}${local_time}"
 # Make prompt_string red if the previous command failed.
 local return_status="%(?.%{$fg[green]%}$prompt_string.%{$fg[red]%}$prompt_string%"
 
