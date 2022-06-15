@@ -67,39 +67,37 @@ fi
 #   fi
 # 
 # }
-# set the git_prompt_info text
-ZSH_THEME_GIT_PROMPT_ADDED="➕"
-ZSH_THEME_GIT_PROMPT_MODIFIED="✒️ "
-ZSH_THEME_GIT_PROMPT_DELETED="➖"
-ZSH_THEME_GIT_PROMPT_RENAMED="⁉️ "
-ZSH_THEME_GIT_PROMPT_UNMERGED=""
-ZSH_THEME_GIT_PROMPT_UNTRACKED=""
-# ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue](%{$reset_color%}%{$fg[yellow]%}"
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%{$fg[blue])%}"
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}(%{$reset_color%}%{$fg[yellow]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%})%{$reset_color%} $(git_prompt_status) "
-zsh_theme_git_prompt_dirty="⚡"
-zsh_theme_git_prompt_clean="C"
+# set the git_prompt_info text 
 
-local host_name="%{$fg[blue]%}${username}"
-local time_string="%{$fg[gray]%}${local_time}"
+## state_constants
+ZSH_THEME_GIT_PROMPT_UNTRACKED=" "
+ZSH_THEME_GIT_PROMPT_ADDED=" "
+ZSH_THEME_GIT_PROMPT_MODIFIED=" "
+# ZSH_THEME_GIT_PROMPT_RENAMED="⁉️  "
+# ZSH_THEME_GIT_PROMPT_DELETED="➖ "
+# ZSH_THEME_GIT_PROMPT_UNMERGED=" "
+# ZSH_THEME_GIT_PROMPT_AHEAD = ""
+# ZSH_THEME_GIT_PROMPT_BEHIND = ""
+# ZSH_THEME_GIT_PROMPT_DIVERGED = ""
+# ZSH_THEME_GIT_PROMPT_STASHED = ""
+
+ZSH_THEME_GIT_PROMPT_DIRTY=""
+ZSH_THEME_GIT_PROMPT_CLEAN="🐶"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}(%{$reset_color%}%{$fg[yellow]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%})%{$reset_color%} "
+
+local host_name="%{$fg_bold[green]%}%m %{$reset_color%}"
+local time_string=$'%{\e[38;5;240m%}'${local_time}
 # Make prompt_string red if the previous command failed.
 local return_status="%(?.%{$fg[green]%}$prompt_string.%{$fg[red]%}$prompt_string%"
 
 
-if [ ${showuser} = true ]; then 
-PROMPT='${newline}\
-${host_name}${hosr}%{$reset_color%} ${line_mode}\
-${path_prefix}${path_string}${path_postfix}%{$reset_color%} \
-${return_status}'
-else
 PROMPT=' ${newline}\
 ${line_mode}\
 ${path_prefix}${path_string}${path_postfix}%{$reset_color%} \
 ${return_status}'
-fi
 
-RPROMPT='%{$fg[blue]%}%B%m%b $(git_prompt_info)${time_string}%{$reset_color%}'
+RPROMPT='${host_name}$(git_prompt_info)$(git_prompt_status)${time_string}%{$reset_color%}'
 # RPROMPT='$(git_prompt_info) $(git_prompt_status) ${time_string}'
 export PROMPT=$PROMPT
 export RPROMPT=$RPROMPT
