@@ -47,15 +47,15 @@ fi
 #   # Get the name of the virtual environment if one is active
 #   ## 可能需要运行一下 conda config --set changeps1 false 
 #   if [[ -n $VIRTUAL_ENV ]]; then
-#     local env_label=" $(basename $VIRTUAL_ENV) "
+#     local env_label=" $(basename $VIRTUAL_ENv) "
 #   fi
 # 
 #   # Get the name of the Anaconda environment if one is active
 #   if [[ -n $CONDA_PREFIX ]]; then
 #     if [[ -n $env_label ]]; then
-#       env_label+="+ $(basename $CONDA_DEFAULT_ENV) "
+#       env_label+="+ $(basename $CONDA_DEFAULt_ENV) "
 #     else
-#       local env_label=" $(basename $CONDA_DEFAULT_ENV) "
+#       local env_label=" $(basename $CONDA_DEfAULT_ENV) "
 #     fi
 #   fi
 #   # Draw prompt segment if a virtual/conda environment is active
@@ -76,7 +76,7 @@ ZSH_THEME_GIT_PROMPT_MODIFIED=" "
 # ZSH_THEME_GIT_PROMPT_RENAMED="⁉️  "
 # ZSH_THEME_GIT_PROMPT_DELETED="➖ "
 # ZSH_THEME_GIT_PROMPT_UNMERGED=" "
-ZSH_THEME_GIT_PROMPT_AHEAD="省 "
+ZSH_THEME_GIT_PROMPT_AHEAD=" "
 ZSH_THEME_GIT_PROMPT_BEHIND=" "
 # ZSH_THEME_GIT_PROMPT_DIVERGED = ""
 # ZSH_THEME_GIT_PROMPT_STASHED = ""
