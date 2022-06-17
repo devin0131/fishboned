@@ -92,7 +92,7 @@ local time_string=$'%{\e[38;5;240m%}'${local_time}
 local return_status="%(?.%{$fg[green]%}$prompt_string.%{$fg[red]%}$prompt_string%"
 
 
-PROMPT=' ${newline}\
+PROMPT='${newline}\
 ${line_mode}\
 ${path_prefix}${path_string}${path_postfix}%{$reset_color%} \
 ${return_status}'
